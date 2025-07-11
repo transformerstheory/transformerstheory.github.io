@@ -1,56 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Construction</title>
-    <!-- Bulma CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <!-- Bulmaswatch Lumen Theme -->
-    <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/lumen/bulmaswatch.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>What Can('t) Transformers Do? Workshop @ NeurIPS 2025</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://jenil.github.io/litera/lumen/litera.min.css" />
     <style>
-        .hero.is-primary {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-        }
-        .construction-icon {
-            font-size: 5rem;
-            animation: bounce 2s infinite;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-30px);
-            }
-            60% {
-                transform: translateY(-15px);
-            }
-        }
-        .progress-bar {
-            margin-top: 2rem;
-            max-width: 400px;
-        }
+      body {
+        padding-top: 3.25rem;
+      }
+      .section {
+        padding-top: 1.8rem;
+        padding-bottom: 1.8rem;
+        scroll-margin-top: 3.25rem;
+      }
+      .image.is-256x256 {
+        height: 200px;
+        width: 200px;
+      }
     </style>
-</head>
-<body>
-    <section class="hero is-primary is-fullheight">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <div class="construction-icon mb-6">
-                    <i class="fas fa-hard-hat"></i>
-                </div>
-                <h1 class="title is-1 has-text-white mb-6">
-                    Under Construction
-                </h1>
-                <h2 class="subtitle has-text-white mb-6">
-                    We are working out the details.<br>
-                    Please check back soon!
-                </h2>
-            </div>
+  </head>
+  <body>
+    <!-- Sticky Navbar -->
+    <nav class="navbar is-fixed-top has-shadow is-link" role="navigation" aria-label="main navigation">
+      <div class="container is-max-desktop">
+        <div class="navbar-brand">
+          <!--<a class="navbar-item" href="#">Workshop 2025</a>-->
+          <a role="button" class="navbar-burger" data-target="navMenu"> <span></span><span></span><span></span> </a>
         </div>
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item has-text-weight-bold" href="#overview">Overview</a>
+            <a class="navbar-item has-text-weight-bold" href="#cfp">Call for Papers</a>
+            <a class="navbar-item has-text-weight-bold" href="#deadlines">Deadlines</a>
+            <a class="navbar-item has-text-weight-bold" href="#speakers">Speakers</a>
+            <a class="navbar-item has-text-weight-bold" href="#organizers">Organizers</a>
+            <a class="navbar-item has-text-weight-bold" href="#timetable">Timetable</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero is-light is-small">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <h1 class="title">What Can('t) Transformers Do?</h1>
+          <h2 class="subtitle">Workshop at NeurIPS 2025</h2>
+        </div>
+      </div>
     </section>
-</body>
-</html> 
+
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container content is-max-desktop">
+        <h3 class="title is-3">Overview</h3>
+        <p>
+          With most advances in large foundation models (LFMs) being empirical, our theoretical understanding of what transformers can compute, express, and learn still lags behind. This workshop will convene theorists and empiricists to
+          chart a rigorous agenda for the next generation of LFMs, asking <strong><q>What can and can't transformers do?</q></strong>.
+        </p>
+        <p>
+          We welcome both formal analyses and empirically grounded studies that shed light on theoretical questions, aiming to close the gap between proofs and practice while fostering new, interdisciplinary collaborations.
+        </p>
+      </div>
+    </section>
+
+    <!-- CFP -->
+    <section id="cfp" class="section">
+      <div class="container content is-max-desktop">
+        <h3 class="title is-3">Call for Papers</h3>
+        <p>
+          We invite contributions that either introduce new formal results—proofs, impossibility theorems, or constructive separations—and show why they matter in practice, or design rigorous, carefully controlled experiments whose primary
+          aim is to test, falsify, or refine a theoretical claim about transformers.
+        </p>
+        <ul>
+          <li>
+            <strong>Core themes:</strong>
+            <ul>
+              <li>Theoretical analyses of transformer capabilities, including expressivity, learnability, inference-time scaling, in-context learning, and effects of architectural components.</li>
+              <li>
+                Empirical studies of transformer behavior that inform theoretical understanding, including architectural or training innovations, mechanistic studies of failures, and comparisons of theorized and observed capabilities.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Presentation format:</strong>
+            <ul>
+              <li>All accepted papers will be presented as posters; a subset will be invited for spotlight talks based on reviewer recommendations.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Submission format:</strong>
+            <ul>
+              <li>Extended abstract (2 content pages), with unlimited references and supplementary material.</li>
+              <li>Anonymized, in NeurIPS format using <a href="https://media.neurips.cc/Conferences/NeurIPS2025/Styles.zip">the official style files</a>.</li>
+            </ul>
+          </li>
+          <li><strong>Submission link: [coming soon]</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Deadlines -->
+    <section id="deadlines" class="section">
+      <div class="container content is-max-desktop">
+        <h3 class="title is-3">Deadlines</h3>
+        <ul>
+          <li><strong>Submission deadline:</strong> August 22, 2025, AoE</li>
+          <li><strong>Reviews due:</strong> September 12, 2025, AoE</li>
+          <li><strong>Accept/Reject Notification Date:</strong> September 22, 2025, AoE</li>
+          <li><strong>Camera-ready deadline:</strong> November 22, 2025, AoE</li>
+          <li><strong>Workshop Date:</strong> December 6 or December 7, 2025</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Speakers -->
+    <section id="speakers" class="section">
+      <div class="container content is-max-desktop">
+        <h3 class="title is-3">Keynote Speakers</h3>
+        <div class="columns is-mobile is-multiline is-centered">
+          <div class="column is-narrow">
+            <div class="card" style="max-width: 320px;">
+              <div class="card-content">
+                <figure class="image is-200x200">
+                  <img class="is-rounded" src="img/kleinberg.jpg" />
+                </figure>
+                <p class="title is-4">Jon Kleinberg</p>
+                <p class="subtitle is-6">Professor, Cornell University</p>
+                <p class="content">Talk: TBD</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-narrow">
+            <div class="card" style="max-width: 320px;">
+              <div class="card-content">
+                <figure class="image is-200x200">
+                  <img class="is-rounded" src="https://versions.bulma.io/0.7.2/images/placeholders/256x256.png" />
+                </figure>
+                <p class="title is-4">TBD</p>
+                <p class="subtitle is-6">TBD</p>
+                <p class="content">TBD</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="organizers" class="section">
+      <div class="container content is-max-desktop">
+        <h3 class="title is-3">Organizers</h3>
+        <div class="columns is-mobile is-multiline is-centered">
+          <div class="column is-narrow has-text-centered">
+            <figure class="image is-128x128 mt-0 mb-0">
+              <img class="is-rounded" src="img/schnabel.jpg" />
+            </figure>
+            <p class="is-black has-text-weight-bold mt-2 mb-0">Tobias Schnabel</p>
+            <p class="is-grey-dark m-0">Microsoft Research</p>
+          </div>
+          <div class="column is-narrow has-text-centered">
+            <figure class="image is-128x128 mt-0 mb-0">
+              <img class="is-rounded" src="img/tomlinson.jpg" />
+            </figure>
+            <p class="is-black has-text-weight-bold mt-2 mb-0">Kiran Tomlinson</p>
+            <p class="is-grey-dark m-0">Microsoft Research</p>
+          </div>
+          <div class="column is-narrow has-text-centered">
+            <figure class="image is-128x128 mt-0 mb-0">
+              <img class="is-rounded" src="img/strobl.jpg" />
+            </figure>
+            <p class="is-black has-text-weight-bold mt-2 mb-0">Lena Strobl</p>
+            <p class="is-grey-dark m-0">Umeå University</p>
+          </div>
+          <div class="column is-narrow has-text-centered">
+            <figure class="image is-128x128 mt-0 mb-0">
+              <img class="is-rounded" src="img/hahn.jpg" />
+            </figure>
+            <p class="is-black has-text-weight-bold mt-2 mb-0">Michael Hahn</p>
+            <p class="is-grey-dark m-0">Saarland University</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timetable -->
+    <section id="timetable" class="section">
+      <div class="container content is-max-desktop">
+        <h3 class="title is-3">Tentative Timetable</h3>
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Session</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>09:30 - 17:00</td>
+              <td>Workshop</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+
+        const burger = document.querySelector(".navbar-burger");
+        const menu = document.getElementById(burger.dataset.target);
+
+        document.querySelectorAll("#navMenu .navbar-item").forEach((link) => {
+          link.addEventListener("click", () => {
+            burger.classList.remove("is-active");
+            menu.classList.remove("is-active");
+          });
+        });
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach((el) => {
+          el.addEventListener("click", () => {
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle("is-active");
+            $target.classList.toggle("is-active");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
