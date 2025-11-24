@@ -20,9 +20,12 @@
         height: 200px;
         width: 200px;
       }
-      .lunch-row {
-        background-color: rgb(249, 250, 251);
+      .lunch-row, .table.is-hoverable tbody tr.lunch-row:hover {
+        background-color: #cdd8e3;
         line-height: 2rem;
+      }
+	  .keynote-row, .table.is-hoverable tbody tr.keynote-row:hover{
+        background-color: #eff5fb;
       }
       .contactus span:nth-of-type(2n) {
         display: none;
@@ -40,6 +43,20 @@
       .contactus span {
         font-family: 'Courier New', Courier, monospace;
         font-weight: bold;
+      }
+      #speakers .columns {
+        display: flex;
+        align-items: stretch;
+      }
+      #speakers .card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      #speakers .card-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
       }
     </style>
 	<script defer src="https://cloud.umami.is/script.js" data-website-id="7d9ff9d9-039e-4d26-b9f8-e256d1657bb3"></script>
@@ -83,7 +100,7 @@
         <h3 class="title is-3">Overview</h3>
         <article class="message is-info">
           <div class="message-body">
-          <strong>Update 10/14:</strong> Accepted papers, spotlights, and location added.
+          <strong>Update 11/24:</strong> Keynote details added.
           </div>
         </article>
         <p>
@@ -168,7 +185,7 @@
                 </figure>
                 <p class="title is-4">Surbhi Goel</p>
                 <p class="subtitle is-6">University Of Pennsylvania</p>
-                <p class="content">Talk: TBD</p>
+                <p class="content"><strong>Talk:</strong> Probing What Transformers Can('t) Do with Synthetic Tasks</p>
               </div>
             </div>
           </div>
@@ -181,7 +198,7 @@
                 </figure>
                 <p class="title is-4">Jon Kleinberg</p>
                 <p class="subtitle is-6">Cornell University</p>
-                <p class="content">Talk: TBD</p>
+                <p class="content"><strong>Talk:</strong> Capturing the Tension between Hallucination and Mode Collapse in a Model of Language Generation</p>
               </div>
             </div>
           </div>
@@ -194,7 +211,7 @@
                 </figure>
                 <p class="title is-4">William Merrill</p>
                 <p class="subtitle is-6">NYU</p>
-                <p class="content">Talk: TBD</p>
+                <p class="content"><strong>Talk:</strong> Overcoming (Some) Limitations of Transformers with Linear RNNs</p>
               </div>
             </div>
           </div>
@@ -311,8 +328,12 @@
     <!-- Timetable -->
     <section id="timetable" class="section">
       <div class="container content is-max-desktop">
-        <h3 class="title is-3">Tentative Timetable</h3>
+        <h3 class="title is-3">Timetable</h3>
         <table class="table is-fullwidth is-hoverable">
+		  <colgroup>
+			<col style="width: 130px;">
+			<col>
+		  </colgroup>
           <thead>
             <tr>
               <th>Time</th>
@@ -326,15 +347,15 @@
               <td>Welcome and Opening Remarks</td>
               <td>Organizers</td>
             </tr>
-            <tr>
+            <tr class="keynote-row">
               <th>09:35 - 10:10</th>
-              <td>Keynote Talk A</td>
-              <td>TBD</td>
+              <td><strong>Keynote:</strong> Capturing the Tension between Hallucination and Mode Collapse in a Model of Language Generation</td>
+              <td>Jon Kleinberg</td>
             </tr>
-			<tr>
+			<tr class="keynote-row">
               <th>10:10 - 10:45</th>
-              <td>Keynote Talk B</td>
-              <td>TBD</td>
+              <td><strong>Keynote:</strong> Overcoming (Some) Limitations of Transformers with Linear RNNs</td>
+              <td>William Merrill</td>
             </tr>
 			<tr>
               <th>10:45 - 10:55</th>
@@ -353,13 +374,13 @@
             </tr>
             <tr class="lunch-row">
               <th>12:30 - 14:00</th>
-              <td>Lunch Break</td>
+              <td><strong>Lunch Break</strong></td>
               <td>All</td>
             </tr>
-            <tr>
+            <tr class="keynote-row">
               <th>14:00 - 14:35</th>
-              <td>Keynote Talk C</td>
-              <td>TBD</td>
+              <td><strong>Keynote:</strong> Probing What Transformers Can('t) Do with Synthetic Tasks</td>
+              <td>Surbhi Goel</td>
             </tr>
             <tr>
               <th>14:35 - 14:45</th>
