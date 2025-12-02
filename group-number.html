@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Number Assignment</title>
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Bulmaswatch Lumen Theme -->
+    <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/lumen/bulmaswatch.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .hero.is-primary {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+        .group-letter {
+            font-size: 15rem;
+            font-weight: bold;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .loading {
+            font-size: 2rem;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero is-primary is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div id="button-container" class="is-hidden">
+                    <button id="getGroupButton" class="button is-large is-white is-rounded" style="font-size: 1.5rem; padding: 2rem 4rem;">
+                        <span class="icon is-large">
+                            <i class="fas fa-hand-pointer"></i>
+                        </span>
+                        <span>Get Your Group Number</span>
+                    </button>
+                </div>
+                <div id="loading" class="loading mb-6 is-hidden">
+                    <i class="fas fa-spinner fa-spin"></i> Loading...
+                </div>
+                <div id="result" class="is-hidden">
+                    <h1 class="title is-1 has-text-white mb-6">
+                        Your Group Assignment
+                    </h1>
+                    <div class="group-letter has-text-white mb-6" id="groupLetter">
+                    </div>
+                    <p class="subtitle has-text-white" id="groupInfo">
+                    </p>
+                </div>
+                <div id="error" class="is-hidden">
+                    <div class="notification is-danger">
+                        <p>Sorry, there was an error getting your group number. Please try again later.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const GROUP_SIZE = 6; // Number of people per group
+        const API_KEY = 'ut_Y6M2a5NjRBkEaQJzXUEDARXLlKOL9lFjVAnlAULx';
+        const COUNTER_KEY = 'groupname'; // Key for localStorage
+
+        async function incrementCounter() {
+            const response = await fetch('https://api.counterapi.dev/v2/transformerstheorys-team-1901/groupnames/up', {
+                method: 'GET'
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({ message: 'Failed to increment counter' }));
+                throw new Error(errorData.message || 'Failed to increment counter');
+            }
+            
+            return response.json();
+        }
+
+        function numberToLetter(num) {
+            // Convert number to letter (0 = A, 1 = B, etc.)
+            return String.fromCharCode(65 + (num % 26));
+        }
+
+        async function getGroupNumber() {
+            const buttonContainer = document.getElementById('button-container');
+            const loadingEl = document.getElementById('loading');
+            const resultEl = document.getElementById('result');
+            const errorEl = document.getElementById('error');
+            const groupLetterEl = document.getElementById('groupLetter');
+            const groupInfoEl = document.getElementById('groupInfo');
+
+            // Hide button and show loading
+            buttonContainer.classList.add('is-hidden');
+            loadingEl.classList.remove('is-hidden');
+
+            try {
+                // Check localStorage first
+                let number = localStorage.getItem(COUNTER_KEY);
+                if (number === 'undefined' || number === 'null' || !number) {
+                    const data = await incrementCounter();
+                    number = data.data.up_count;
+                    localStorage.setItem(COUNTER_KEY, number.toString());
+                }
+
+                // Calculate group number and letter
+                const groupNumber = Math.floor(parseInt(number) / GROUP_SIZE);
+                const groupLetter = numberToLetter(groupNumber);
+
+                // Display results
+                loadingEl.classList.add('is-hidden');
+                resultEl.classList.remove('is-hidden');
+                groupLetterEl.textContent = groupLetter;
+
+            } catch (error) {
+                console.error('Error in getGroupNumber:', error);
+                loadingEl.classList.add('is-hidden');
+                errorEl.classList.remove('is-hidden');
+                errorEl.querySelector('p').textContent = `Error: ${error.message}`;
+            }
+        }
+
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttonContainer = document.getElementById('button-container');
+            const getGroupButton = document.getElementById('getGroupButton');
+            
+            // Check if group number already exists
+            const existingNumber = localStorage.getItem(COUNTER_KEY);
+            if (existingNumber && existingNumber !== 'undefined' && existingNumber !== 'null') {
+                // Group number exists, automatically get it
+                getGroupNumber();
+            } else {
+                // No group number, show button
+                buttonContainer.classList.remove('is-hidden');
+                getGroupButton.addEventListener('click', getGroupNumber);
+            }
+        });
+    </script>
+</body>
+</html> 
