@@ -58,6 +58,10 @@
         display: flex;
         flex-direction: column;
       }
+      .content figure {
+        margin-left: 0;
+        margin-right: 0;
+      }
     </style>
 	<script defer src="https://cloud.umami.is/script.js" data-website-id="7d9ff9d9-039e-4d26-b9f8-e256d1657bb3"></script>
   </head>
@@ -101,7 +105,7 @@
         <h3 class="title is-3">Overview</h3>
         <article class="message is-info">
           <div class="message-body">
-          <strong>Update 11/24:</strong> Camera-ready versions posted.
+          <strong>Update 1/14:</strong> Day of workshop changes posted.
           </div>
         </article>
         <p>
@@ -178,20 +182,21 @@
         <h3 class="title is-3">Keynote Speakers</h3>
         <div class="columns is-mobile is-multiline is-centered">
 		  <div class="column is-narrow">
-            <div class="card" style="max-width: 300px;">
+            <div class="card" style="max-width: 200px;">
               <div class="card-content">
                 <figure class="image is-200x200">
                   <img class="is-rounded" src="img/goel.jpg" />
                 </figure>
                 <p class="title is-4">Surbhi Goel</p>
                 <p class="subtitle is-6">University Of Pennsylvania</p>
-                <p class="content"><strong>Talk:</strong> Probing What Transformers Can('t) Do with Synthetic Tasks</p>
+                <p class="content"><s><strong>Talk:</strong> Probing What Transformers Can('t) Do with Synthetic Tasks</s></p>
+                <p style="color:red">Canceled due to sickness</p>
               </div>
             </div>
           </div>
 		  
 		  <div class="column is-narrow">
-            <div class="card" style="max-width: 300px;">
+            <div class="card" style="max-width: 200px;">
               <div class="card-content">
                 <figure class="image is-200x200">
                   <img class="is-rounded" src="img/kleinberg.jpg" />
@@ -204,7 +209,7 @@
           </div>
 		  
 		  <div class="column is-narrow">
-            <div class="card" style="max-width: 300px;">
+            <div class="card" style="max-width: 200px;">
               <div class="card-content">
                 <figure class="image is-200x200">
                   <img class="is-rounded" src="img/merrill.jpg" />
@@ -215,7 +220,20 @@
               </div>
             </div>
           </div>
-		  
+        
+          <div class="column is-narrow">
+            <div class="card" style="max-width: 200px;">
+              <div class="card-content">
+                <figure class="image is-200x200">
+                  <img class="is-rounded" src="img/nagarajan.jpg" />
+                </figure>
+                <p class="title is-4">Vaishnavh Nagarajan</p>
+                <p class="subtitle is-6">Google Research</p>
+                <p class="content"><strong>Talk:</strong> What can('t) next token prediction do?</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -265,7 +283,7 @@
 			<em>Ethan Ewer, Daewon Chae, Thomas Zeng, Jinkyu Kim, Kangwook Lee.</em></li>
 			<li>On the Role of Transformer Feed-Forward Layers in Nonlinear In-Context Learning.
 			<em>Haoyuan Sun, Ali Jadbabaie, Navid Azizan.</em></li>
-			<li><a href="pdf/27_zhou_et_al.pdf">Why Do Transformers Fail to Forecast Time Series In-Context?</a>
+			<li>Why Do Transformers Fail to Forecast Time Series In-Context?
 			<em>Yufa Zhou, Yixiao Wang, Surbhi Goel, Anru Zhang.</em></li>
 		</ul>
 		
@@ -376,9 +394,14 @@
               <td>All</td>
             </tr>
             <tr class="keynote-row">
+              <th><s>14:00 - 14:35</s></th>
+              <td><s><strong>Keynote:</strong> Probing What Transformers Can('t) Do with Synthetic Tasks</s></td>
+              <td><s>Surbhi Goel</s></td>
+            </tr>
+            <tr class="keynote-row">
               <th>14:00 - 14:35</th>
-              <td><strong>Keynote:</strong> Probing What Transformers Can('t) Do with Synthetic Tasks</td>
-              <td>Surbhi Goel</td>
+              <td><strong>Keynote:</strong> What can('t) next token prediction do?</td>
+              <td>Vaishnavh Nagarajan</td>
             </tr>
             <tr>
               <th>14:35 - 14:45</th>
